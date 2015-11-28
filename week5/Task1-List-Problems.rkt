@@ -23,7 +23,6 @@
 
 ;;------------Проверява дали x се среща в items---------------------;;
 
-;--> 1. First Way
 (define (member? x items)   ;-> Here I use the default func. 'member'
   (if (member x items)      ;-- In the default 'member' ,
       #t                    ;-- when the x exists in the list-(items)
@@ -31,23 +30,13 @@
    )
 )
 
-;--> 2. Second Way
-(define (my-member? x items)
-  (cond
-    [(null? items) #f]
-    [(equal? x (car items)) #t]
-    [else (my-member? x (cdr items))]
-  )
-)
 
-;--> 3. Third Way
-(define (member3 x items)
-  (cond
-    [(null? items) #f]
-    [else (or (equal? x (car items)) (member3 x (cdr items)))]
-  )
-)
+;;------------ Намира най-големия/малкия елемент в списък ---------------------;;
+;--> 1. max
+(define (maximum l) (foldr max (car l) l))
 
+;--> 2. min
+(define (minimum l) (foldr min (car l) l))
 
 
 ;;------------Find the range from a to b  [a , b]---------------------;;
@@ -74,20 +63,6 @@
 
 
 ;;-----------------Find the length of list---------------------;;
-;--> 1. First Way
-(define (length2 items)
-  (define (help lst count)
-    (cond
-      [(null? lst) count]
-      [else (help (cdr lst) (+ count 1))]
-    )
-  )
-
-(help items 0)
-  )
-
-
-;--> 2. Second Way
 (define (length3 items)
   (cond
     [(null? items) 0]
@@ -98,7 +73,7 @@
 
 
 
-;;-----Връща n-тия елемент от items при 0лево базиран индекс--------;;
+;;-----Връща n-тия елемент от items при 0-лево базиран индекс--------;;
 ;--> 1. First Way
 (define (list-ref2 items n)
   (define (help lst count)
