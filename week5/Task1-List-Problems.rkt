@@ -22,7 +22,16 @@
 
 
 ;;------------Проверява дали x се среща в items---------------------;;
+
 ;--> 1. First Way
+(define (member? x items)   ;-> Here I use the default func. 'member'
+  (if (member x items)      ;-- In the default 'member' ,
+      #t                    ;-- when the x exists in the list-(items)
+      #f                    ;-- the func. return the tail of list starting with x
+   )
+)
+
+;--> 2. Second Way
 (define (my-member? x items)
   (cond
     [(null? items) #f]
@@ -31,16 +40,7 @@
   )
 )
 
-;--> 2. Second Way
-(define (member? x items)   ;-> Here I use the default func. 'member'
-  (if (member x items)      ;-- In the default 'member' ,
-      #t                    ;-- when the x exists in the list-(items)
-      #f                    ;-- the func. return the tail of list starting with x
-   )
-)
-
 ;--> 3. Third Way
-
 (define (member3 x items)
   (cond
     [(null? items) #f]
