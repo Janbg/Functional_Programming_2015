@@ -4,6 +4,11 @@
 
 
 ;;---------------Намира сумата на всички числа в numbers-------------;;
+;--> 1. First Way
+(define (sum-lst XS)
+  (apply + XS))
+
+;--> 2. Second Way
 (define (sum numbers)
   (define (help lst result)
     (cond
